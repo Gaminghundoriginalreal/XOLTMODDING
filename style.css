@@ -1,0 +1,354 @@
+:root {
+    --bg: #050711;
+    --bg-alt: #0b0f1f;
+    --card-bg: #111528;
+    --accent: #5c7bff;
+    --accent-soft: rgba(92, 123, 255, 0.28);
+    --text: #f5f7ff;
+    --text-soft: #a4a9c8;
+    --border: #1e243b;
+    --danger: #ff4b6a;
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+    --transition-fast: 0.18s ease-out;
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background: radial-gradient(circle at top, #151a3a 0, #050711 50%, #000 100%);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+.xm-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 6vw;
+    backdrop-filter: blur(16px);
+    background: linear-gradient(
+        to bottom,
+        rgba(5, 7, 17, 0.96),
+        rgba(5, 7, 17, 0.82),
+        transparent
+    );
+    border-bottom: 1px solid rgba(92, 123, 255, 0.08);
+}
+
+.xm-logo {
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-soft);
+}
+
+.xm-logo-accent {
+    color: var(--accent);
+}
+
+.xm-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#searchInput {
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(4, 8, 22, 0.9);
+    color: var(--text);
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    min-width: 190px;
+    outline: none;
+    transition: border var(--transition-fast), box-shadow var(--transition-fast),
+        background var(--transition-fast);
+}
+
+#searchInput::placeholder {
+    color: var(--text-soft);
+}
+
+#searchInput:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(92, 123, 255, 0.6);
+    background: rgba(4, 8, 22, 1);
+}
+
+/* MAIN */
+
+.xm-main {
+    padding: 24px 6vw 40px;
+}
+
+/* HERO */
+
+.xm-hero {
+    max-width: 720px;
+    margin: 32px auto 24px;
+    text-align: center;
+}
+
+.xm-hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+}
+
+.xm-hero h1 span {
+    background: linear-gradient(120deg, #5c7bff, #9f6bff, #6ef3ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.xm-hero p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+}
+
+/* GAMES SECTION */
+
+.xm-games-section {
+    margin-top: 36px;
+}
+
+.xm-games-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+}
+
+.xm-games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+/* GAME CARD */
+
+.xm-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+        145deg,
+        rgba(21, 28, 63, 0.96),
+        rgba(13, 17, 38, 0.98)
+    );
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.xm-card::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(
+        circle at top right,
+        var(--accent-soft),
+        transparent 55%
+    );
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+    pointer-events: none;
+}
+
+.xm-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    border-color: rgba(92, 123, 255, 0.7);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75);
+    background: linear-gradient(
+        145deg,
+        rgba(27, 36, 80, 1),
+        rgba(9, 13, 32, 0.98)
+    );
+}
+
+.xm-card:hover::before {
+    opacity: 1;
+}
+
+/* IMAGE */
+
+.xm-card-image-wrap {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.xm-card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 0.4s ease-out, filter 0.4s ease-out;
+}
+
+.xm-card:hover .xm-card-image {
+    transform: scale(1.06);
+    filter: saturate(1.15);
+}
+
+/* BADGE */
+
+.xm-card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 9px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    border-radius: 999px;
+    background: rgba(5, 7, 17, 0.78);
+    border: 1px solid rgba(92, 123, 255, 0.7);
+    color: var(--text-soft);
+}
+
+/* CONTENT */
+
+.xm-card-body {
+    padding: 14px 14px 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.xm-card-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.xm-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--text-soft);
+    opacity: 0.9;
+}
+
+/* BUTTON */
+
+.xm-card-actions {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.xm-btn-download {
+    border-radius: 999px;
+    border: 1px solid rgba(92, 123, 255, 0.9);
+    background: radial-gradient(circle at top left, #7d8fff, #4b63ff);
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 7px 14px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 10px 30px rgba(59, 86, 255, 0.55);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        background 0.12s ease-out;
+}
+
+.xm-btn-download span {
+    font-size: 0.9em;
+}
+
+.xm-btn-download:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 40px rgba(59, 86, 255, 0.8);
+}
+
+.xm-btn-download:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 22px rgba(59, 86, 255, 0.7);
+}
+
+/* ERROR */
+
+.xm-error {
+    margin-top: 18px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 75, 106, 0.1);
+    border: 1px solid rgba(255, 75, 106, 0.6);
+    color: #ffc1cf;
+    font-size: 0.8rem;
+}
+
+/* FOOTER */
+
+.xm-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 14px 6vw 18px;
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    text-align: center;
+    background: linear-gradient(
+        to top,
+        rgba(3, 5, 12, 1),
+        rgba(3, 5, 12, 0.9),
+        transparent
+    );
+    margin-top: 30px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .xm-main {
+        padding-inline: 4vw;
+    }
+
+    .xm-header {
+        padding-inline: 4vw;
+    }
+
+    .xm-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    #searchInput {
+        min-width: 140px;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+}
