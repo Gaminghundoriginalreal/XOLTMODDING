@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>XOLTMODDING</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="xm-header">
+        <div class="xm-logo">
+            <span class="xm-logo-accent">XOLT</span>MODDING
+        </div>
+        <div class="xm-header-right">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search games..."
+                aria-label="Search games"
+            />
+        </div>
+    </header>
+
+    <main class="xm-main">
+        <section class="xm-hero">
+            <h1>Welcome to <span>XOLTMODDING</span></h1>
+            <p>Your central hub for all modded games and trainers.</p>
+        </section>
+
+        <section class="xm-games-section">
+            <h2>Available Games</h2>
+            <div id="gamesGrid" class="xm-games-grid">
+                
+            </div>
+            <div id="gamesError" class="xm-error" style="display:none;">
+                Could not load games. Check your <code>games.json</code>.
+            </div>
+        </section>
+    </main>
+
+    <footer class="xm-footer">
+        <span>© <span id="year"></span> XOLTMODDING. All rights reserved.</span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
