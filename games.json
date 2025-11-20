@@ -1,19 +1,5 @@
 [
   {
-    "gameName": "Gorilla Rush Modded",
-    "screenshot": "https://via.placeholder.com/800x450?text=Gorilla+Rush",
-    "download": "https://example.com/download/gorilla-rush-mod",
-    "platform": "PC",
-    "category": "Trainer"
-  },
-  {
-    "gameName": "BladeRealms Enhanced",
-    "screenshot": "https://via.placeholder.com/800x450?text=BladeRealms",
-    "download": "https://example.com/download/blade-realms-enhanced",
-    "platform": "PC",
-    "category": "Mod Pack"
-  },
-  {
     "gameName": "XVoid Client",
     "screenshot": "https://via.placeholder.com/800x450?text=XVoid+Client",
     "download": "https://example.com/download/xvoid-client",
